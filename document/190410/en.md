@@ -10,11 +10,11 @@ code {color:#000080;}
 Make your chatbot users laugh. With over 100 million chatbot-dedicated expressions created by tens of millions of people around the world and a conversation engine(AICR) that has supported the world's best chatbot for over 15 years, you'll have brilliant chatting skills in your chatbot. You can take advantage of most of the expressions in 'SimSimi', the best chatbot for small talk.
 
 ## Concept
-A ‘talkset’ consists of a pair of question-answer sentences(`qtext-atext`). SWS has more than 100 million talkset repository.
+A ‘talkset’ consists of a pair of question-answer sentences(`qtext`-`atext`). SWS has more than 100 million talkset repository.
 
 <img src="https://workshop.simsimi.com/static/img/smalltalk_diagram_01e.png" width="300px" alt="talkset concept">
 
-When a request is received through the SmallTalk API, SWS’s conversation engine(AICR) finds the relevant question sentences(`qtext`) in the talkset repository considering the similarities with a user’s request sentence(`utext`) and some other factors, creates a candidate talksets, and selects the most appropriate talkset filtering/weighing the parameters included in the request and other conditions.
+When a request is received through the SmallTalk API, SWS’s conversation engine(AICR) finds the relevant question sentences(`qtext`) in the talkset repository considering the similarities with a user’s request sentence(`utext`) and some other factors, creates candidate talksets, and selects the most appropriate talkset filtering/weighing the parameters included in the request and other conditions.
 
 The answer sentence provided by the SmallTalk API is the atext of the talkset selected through this process. If a requested `utext` is “Have you eaten lunch?”, the SmallTalk API returns an `atext` through the process like below
 
@@ -34,7 +34,7 @@ curl -X POST https://wsapi.simsimi.com/190410/talk \
      }'                     
 ```
 - `utext` : Sentence that a user entered in your chatbot. (100 characters max)
-- `lang` : Language code ([Language-language code table](#지원언어))
+- `lang` : Language code ([Language-language code table](#list-of-supported-languages-and-language-codes))
 
 #### Example Response
 ``` json
@@ -51,7 +51,7 @@ curl -X POST https://wsapi.simsimi.com/190410/talk \
 ```
 - `atext` : answer sentence
 - `request` : request body
-- `status`, `statusMessage` : status information ([status code list](#Status Code and Status Messages))
+- `status`, `statusMessage` : status information ([status code list](#status-code-and-status-messages))
 
 ## Response Control
 SmallTalk API provides options for controlling response. 
