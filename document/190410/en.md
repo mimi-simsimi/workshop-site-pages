@@ -10,13 +10,13 @@ code {color:#000080;}
 Make your chatbot users laugh. With over 100 million chatbot-dedicated expressions created by tens of millions of people around the world and a conversation engine(AICR) that has supported the world's best chatbot for over 15 years, you'll have brilliant chatting skills in your chatbot. You can take advantage of most of the expressions in 'SimSimi', the best chatbot for small talk.
 
 ## Concept
-A ‘talkset’ consists of a pair of question-answer sentences(`qtext`-`atext`). SWS has more than 100 million talkset repository.
+A `talkset` consists of a pair of question-answer sentences(`qtext`-`atext`). SWS has more than 100 million talkset repository.
 
 <img src="https://workshop.simsimi.com/static/img/smalltalk_diagram_01e.png" width="300px" alt="talkset concept">
 
 When a request is received through the SmallTalk API, SWS’s conversation engine(AICR) finds the relevant question sentences(`qtext`) in the talkset repository considering the similarities with a user’s request sentence(`utext`) and some other factors, creates candidate talksets, and selects the most appropriate talkset filtering/weighing the parameters included in the request and other conditions.
 
-The answer sentence provided by the SmallTalk API is the atext of the talkset selected through this process. If a requested `utext` is “Have you eaten lunch?”, the SmallTalk API returns an `atext` through the process like below.
+The answer sentence provided by the SmallTalk API is the `atext` of the talkset selected through this process. If a requested `utext` is “Have you eaten lunch?”, the SmallTalk API returns an `atext` through the process like below.
 
 <img src="https://workshop.simsimi.com/static/img/smalltalk_diagram_02e.png" width="600px" alt="smalltalk API flow">
 
@@ -142,7 +142,7 @@ curl -X POST https://wsapi.simsimi.com/190410/talk \
 - `atext_bad_prob`
   + The badword probability of the answer sentence(`atext`).
 - `atext_bad_type`
-  + The distinguishing technique used to estimate badword probability for the answer sentence(`atext`). It is one of `STAPX`, `DPD`, `WPF` and `HB10A` (See the [Badword Classification Techniques (Korean)](http://blog.simsimi.com/2019/03/blog-post.html) )
+  + The distinguishing technique used to estimate badword probability for the answer sentence(`atext`). It is one of `STAPX`, `DPD`, `WPF` and `HB10A`. (See the [Badword Classification Techniques (Korean)](http://blog.simsimi.com/2019/03/blog-post.html) )
 - `regist_date`
   + The creation time of the talkset.
  
