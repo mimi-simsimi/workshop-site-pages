@@ -16,7 +16,7 @@ A ‘talkset’ consists of a pair of question-answer sentences(`qtext`-`atext`)
 
 When a request is received through the SmallTalk API, SWS’s conversation engine(AICR) finds the relevant question sentences(`qtext`) in the talkset repository considering the similarities with a user’s request sentence(`utext`) and some other factors, creates candidate talksets, and selects the most appropriate talkset filtering/weighing the parameters included in the request and other conditions.
 
-The answer sentence provided by the SmallTalk API is the atext of the talkset selected through this process. If a requested `utext` is “Have you eaten lunch?”, the SmallTalk API returns an `atext` through the process like below
+The answer sentence provided by the SmallTalk API is the atext of the talkset selected through this process. If a requested `utext` is “Have you eaten lunch?”, the SmallTalk API returns an `atext` through the process like below.
 
 <img src="https://workshop.simsimi.com/static/img/smalltalk_diagram_02e.png" width="600px" alt="smalltalk API flow">
 
@@ -78,12 +78,12 @@ The options for controlling the response in the current version of the SmallTalk
   + The format is an array of [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes (up to 10).
 　
 - `atext_bad_prob_max`, `qtext_bad_prob_max`, `talkset_bad_prob_max`
-  + Limits the maximum of Badword Probability in the sentences. 
+  + Limits the maximum of badword probability in the sentences. 
   + It's used to suppress bad words in chatbot answers. In many cases, it is sufficient to adjust the bad word probability maximum of the answer sentence(`atext`) appropriately, and  you can further control the question sentence(`qtext`) and the talkset(`talkset`) by specifying an additional bad word probability. The bad probability of a talkset(`talkset`) is determined by combining the question and answer sentences into one sentence. 
   + Specifies one of the values from `0.0` to `1.0` with the first decimal place. Defaults to `1.0`.
 　
 - `atext_bad_prob_min`
-  + Limits the minimum of Badword Probability in the answer sentence(`atext`). 
+  + Limits the minimum of badword probability in the answer sentence(`atext`). 
   + This is an option that you can use to make chatbots say bad words. Many platforms have limitations related to the integrity of the content, so please be aware of their use.
   + Specifies one of the values from `0.0` to `1.0` with the first decimal place. It must be equal to or less than the `atext_bad_prob_max`. Defaults to `1.0`. 
 　
@@ -95,7 +95,7 @@ The options for controlling the response in the current version of the SmallTalk
 - `regist_date_max`, `regist_date_min`
   + Specify the range of the date on which the `talkset` was created.
   + It can be used to implement the latest trend sensitive chatbots and chatbots that remain in the past. 
-  + The default format is `yyyy-MM-dd HH:mm:ss`. If not specified, `regist_date_max` defaults to the current time,` regist_date_min` is the first talkset creation date
+  + The default format is `yyyy-MM-dd HH:mm:ss`. If not specified, `regist_date_max` defaults to the current time,` regist_date_min` is the first talkset creation date.
 
 ## Request Additional Information
 The SmallTalk API provides a way to get more detailed information about responses. Define `cf_info` in the request `body` for the additional information you want to receive.
@@ -237,12 +237,12 @@ Most language codes are the same as ISO-639-1, but note that there are other cas
 
 |`status` | `statusMessage` | Description | 
 | --- | --- | --- |
-|200 | 	OK | Everything worked as expected |
-|227 | 	Parameter Required | The request is missing a required parameter |
-|228 |	Do Not Understand | There is no proper answer to the question you asked |
-|403 |	Unauthorized | Invalid API Key |
-|429 |	Limit Exceeded | User has exceeded the quota |
-|500 |	Server error | Something went wrong on SWS's end |
+|200 | 	OK | Everything worked as expected. |
+|227 | 	Parameter Required | The request is missing a required parameter. |
+|228 |	Do Not Understand | There is no proper answer to the question you asked. |
+|403 |	Unauthorized | Invalid API Key. |
+|429 |	Limit Exceeded | The user has exceeded the quota. |
+|500 |	Server error | Something went wrong on SWS's end. |
 
 ## Badword Probability
-The Badword Probability is an index developed by the SimSimi team to identify how unhealthy/malicious a sentence is, and there are some distinguishing techniques for index calculation including advanced deep learning with superior performance. For more information, please see the blog post, [Malcious Sentence Classification Techniques in the SimSimi Service (Korean)](http://blog.simsimi.com/2019/03/blog-post.html).
+The badword probability is an index developed by the SimSimi team to identify how unhealthy/malicious a sentence is, and there are some distinguishing techniques for index calculation including advanced deep learning with superior performance. For more information, please see the blog post, [Malcious Sentence Classification Techniques in the SimSimi Service (Korean)](http://blog.simsimi.com/2019/03/blog-post.html).
