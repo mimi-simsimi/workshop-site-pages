@@ -236,14 +236,14 @@ Most language codes are the same as ISO-639-1, but note that there are other cas
 
 ## Status Code and Status Messages
 
-|`status` | `statusMessage` | 설명 | 
+|`status` | `statusMessage` | Description | 
 | --- | --- | --- |
-|200 | 	OK | Normal |
-|227 | 	Parameter Required | You have not entered required parameters |
+|200 | 	OK | Everything worked as expected |
+|227 | 	Parameter Required | The request is missing a required parameter |
 |228 |	Do Not Understand | There is no proper answer to the question you asked |
 |403 |	Unauthorized | Invalid API Key |
-|429 |	Limit Exceeded | 사용 한도 초과 |
-|500 |	Server error | 서버 오류 |
+|429 |	Limit Exceeded | User has exceeded the quota |
+|500 |	Server error | Something went wrong on SWS's end |
 
 ## Badword Probability
 The Badword Probability is an index developed by the SimSimi team to identify how unhealthy/malicious a sentence is, and there are some distinguishing techniques for index calculation including advanced deep learning with superior performance. For more information, please see the blog post, [Malcious Sentence Classification Techniques in the SimSimi Service (Korean)](http://blog.simsimi.com/2019/03/blog-post.html).
