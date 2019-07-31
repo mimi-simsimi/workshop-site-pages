@@ -51,14 +51,13 @@ curl -X POST https://wsapi.simsimi.com/190410/talk \
 ```
 - `atext` : answer sentence
 - `request` : request body
-- `status`, `statusMessage` : status information ([status code list](#상태코드표))
+- `status`, `statusMessage` : status information ([status code list](#Status Code and Status Messages))
 
 ## Response Control
 SmallTalk API provides options for controlling response. 
 
 #### Example Request
-If you want your bot to answer sentences(`atext`) with a Badword Probability of 70% or less among the talksets generated in the United States or Canada, you can request by adding the following two options.
-`atext_bad_prob_max` 두 개의 옵션을 추가해서 요청하면 됩니다.
+If you want your bot to answer sentences(`atext`) with a badword probability of 70% or less among the talksets generated in the United States or Canada, you can request by adding the following two options `country` and `atext_bad_prob_max`.
 ``` bash
 curl -X POST https://wsapi.simsimi.com/190410/talk \
      -H "Content-Type: application/json" \
@@ -141,9 +140,9 @@ curl -X POST https://wsapi.simsimi.com/190410/talk \
 - `country`
   + `ISO-3166-1 alpha-2` country code for the talkset. (See the [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements))
 - `atext_bad_prob`
-  + The Badword Probability of the answer sentence(`atext`).
+  + The badword probability of the answer sentence(`atext`).
 - `atext_bad_type`
-  + The distinguishing technique used to estimate Badword Probability for the answer sentence(`atext`). It is one of `STAPX`, `DPD`, `WPF` and `HB10A` (See the [Badword Classification Techniques (Korean)](http://blog.simsimi.com/2019/03/blog-post.html) )
+  + The distinguishing technique used to estimate badword probability for the answer sentence(`atext`). It is one of `STAPX`, `DPD`, `WPF` and `HB10A` (See the [Badword Classification Techniques (Korean)](http://blog.simsimi.com/2019/03/blog-post.html) )
 - `regist_date`
   + The creation time of the talkset.
  
